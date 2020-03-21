@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:12
+    restart: always
+    ports: 
+     - 54320:5432
+    volumes:
+      - kanban_local_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: trailblazer
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  kanban_local_data:
